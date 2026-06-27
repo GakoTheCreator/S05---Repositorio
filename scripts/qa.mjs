@@ -80,6 +80,12 @@ await waitForMotion(mobilePage);
 await mobilePage.screenshot({ path: path.join(output, "mobile-home-dark.png"), fullPage: false });
 report.mobile.darkHome = await measure(mobilePage);
 
+await mobilePage.locator("nav.mobile-nav").getByRole("button", { name: "Atendimento", exact: true }).click();
+await mobilePage.getByRole("heading", { name: "Atendente virtual" }).waitFor();
+await waitForMotion(mobilePage);
+await mobilePage.screenshot({ path: path.join(output, "mobile-atendimento-dark.png"), fullPage: false });
+report.mobile.darkSupport = await measure(mobilePage);
+
 const desktop = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
 const desktopPage = await desktop.newPage();
 await attachDiagnostics(desktopPage, "desktop");
