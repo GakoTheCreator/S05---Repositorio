@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "entrega"
 OUT_DIR.mkdir(exist_ok=True)
 PDF_PATH = OUT_DIR / "Entrega_Final_Inatel_Conecta_Gabriel_Ribeiro.pdf"
+PROJECT_URL = "https://gakothecreator.github.io/S05---Repositorio/"
 
 BLUE = colors.HexColor("#065cbe")
 NAVY = colors.HexColor("#071838")
@@ -273,7 +274,7 @@ def build():
             "Body",
         ),
         p("<b>Funcionamento:</b> o usuário acessa o app, alterna entre tema claro/escuro, abre o atendimento, envia uma dúvida e recebe retorno visual do sistema. Vagas e candidatura permanecem como recurso complementar, mas o foco da entrega é assistência.", "Body"),
-        p("<b>Link para visualização:</b> inserir aqui o link publicado no GitHub Pages ou CodePen após a publicação do projeto.", "Body"),
+        p(f"<b>Link para visualização:</b> {PROJECT_URL}", "Body"),
         Spacer(1, 0.25 * cm),
         p("Telas do projeto", "SubTitle"),
     ]
