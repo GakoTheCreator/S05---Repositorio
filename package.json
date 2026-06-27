@@ -1,0 +1,29 @@
+{
+  "name": "inatel-connect",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "pdf:extract": "node scripts/extract-pdfs.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "pdfjs-dist": "latest",
+    "playwright": "latest",
+    "typescript": "latest"
+  }
+}

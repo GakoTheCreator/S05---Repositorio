@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+.qa/
+.design/
+.brand-download/
+.reference-pdfs/
+entrega/preview/
+*.zip
+*.log
+*.pdf
+!entrega/Entrega_Final_Inatel_Conecta_Gabriel_Ribeiro.pdf
