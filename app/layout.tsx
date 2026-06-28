@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
   title: "Inatel Conecta | Atendimento",
   description: "Protótipo responsivo da jornada de assistência e serviços do app Inatel.",
   icons: {
-    icon: "/brand/inatel.png",
+    icon: `${basePath}/brand/inatel.png`,
   },
 };
 
