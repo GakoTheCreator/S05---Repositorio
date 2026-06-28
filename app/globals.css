@@ -25,8 +25,16 @@
   --chat-user-bg: #065cbe;
   --chat-user-text: #ffffff;
   --chat-meta: #7a879a;
+  --focus-ring: rgba(6, 92, 190, 0.18);
+  --hover-blue-border: #9fc6ef;
+  --progress-track: #d7e6f8;
+  --dot-muted: #d8dee8;
+  --warning: #9a6a00;
+  --warning-bg: #fff4d8;
+  --scrim: rgba(5, 18, 42, 0.52);
   --success: #087a3c;
   --success-bg: #e8f7ee;
+  --success-line: #8bd2aa;
   --on-success: #ffffff;
   --coral: #ef4d43;
   --shadow-sm: 0 2px 10px rgba(17, 42, 76, 0.06);
@@ -64,8 +72,16 @@
   --chat-user-bg: #1f6fd1;
   --chat-user-text: #ffffff;
   --chat-meta: #b6c5da;
+  --focus-ring: rgba(88, 166, 255, 0.22);
+  --hover-blue-border: #4f7fb8;
+  --progress-track: #243a59;
+  --dot-muted: #3a4d68;
+  --warning: #ffd36e;
+  --warning-bg: #332710;
+  --scrim: rgba(1, 6, 14, 0.72);
   --success: #63d991;
   --success-bg: #0e2d1d;
+  --success-line: #2f7b4c;
   --on-success: #06111f;
   --coral: #ff796e;
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.28);
@@ -112,7 +128,7 @@ button,
 button:focus-visible,
 input:focus-visible,
 [role="button"]:focus-visible {
-  outline: 3px solid rgba(6, 92, 190, 0.24);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -433,14 +449,14 @@ button:disabled {
   gap: 12px;
   border: 1px solid var(--line-strong);
   border-radius: 13px;
-  color: #738198;
+  color: var(--field-icon);
   background: var(--white);
   transition: border 150ms ease, box-shadow 150ms ease;
 }
 
 .input-shell:focus-within {
   border-color: var(--inatel-blue);
-  box-shadow: 0 0 0 4px rgba(6, 92, 190, 0.08);
+  box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
 .input-shell input {
@@ -467,7 +483,7 @@ button:disabled {
 
 .form-error {
   margin: 12px 0 0;
-  color: #bb2b24;
+  color: var(--badge-danger-text);
   font-size: 13px;
 }
 
@@ -498,7 +514,7 @@ button:disabled {
   margin: auto 0 0;
   padding-top: 40px;
   text-align: center;
-  color: #8a96a8;
+  color: var(--muted);
   font-size: 11px;
 }
 
@@ -789,7 +805,7 @@ button:disabled {
   grid-template-columns: 46px 1fr auto;
   align-items: center;
   gap: 12px;
-  border: 1px solid #cfe0f5;
+  border: 1px solid color-mix(in srgb, var(--inatel-blue) 22%, var(--line));
   border-radius: 14px;
   color: var(--text);
   background: var(--surface-raised);
@@ -799,7 +815,7 @@ button:disabled {
 }
 
 .profile-progress:hover {
-  border-color: #9ac4f0;
+  border-color: var(--hover-blue-border);
 }
 
 .progress-ring {
@@ -808,7 +824,7 @@ button:disabled {
   display: grid;
   place-items: center;
   border: 4px solid var(--inatel-blue);
-  border-left-color: #d7e6f8;
+  border-left-color: var(--progress-track);
   border-radius: 50%;
   color: var(--inatel-blue);
   font-size: 13px;
@@ -961,8 +977,8 @@ button:disabled {
 }
 
 .featured-job:hover {
-  border-color: #9ec6f1;
-  box-shadow: 0 12px 26px rgba(6, 92, 190, 0.1);
+  border-color: var(--hover-blue-border);
+  box-shadow: var(--shadow-sm);
   transform: translateY(-1px);
 }
 
@@ -1026,7 +1042,7 @@ button:disabled {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #d8dee8;
+  background: var(--dot-muted);
 }
 
 .carousel-dots span:first-child {
@@ -1057,7 +1073,7 @@ button:disabled {
 }
 
 .service-row:hover {
-  border-color: #afcff2;
+  border-color: var(--hover-blue-border);
   background: var(--inatel-blue-pale);
 }
 
@@ -1176,7 +1192,7 @@ button:disabled {
 
 .search-field:focus-within {
   border-color: var(--inatel-blue);
-  box-shadow: 0 0 0 4px rgba(6, 92, 190, 0.07);
+  box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
 .search-field input {
@@ -1328,14 +1344,14 @@ button:disabled {
 }
 
 .job-card:hover {
-  border-color: #9fc6ef;
+  border-color: var(--hover-blue-border);
   box-shadow: var(--shadow-sm);
   transform: translateY(-1px);
 }
 
 .job-card--selected {
   border-color: var(--inatel-blue);
-  box-shadow: 0 0 0 1px rgba(6, 92, 190, 0.03);
+  box-shadow: 0 0 0 1px var(--focus-ring);
 }
 
 .job-card-top {
@@ -1395,7 +1411,7 @@ button:disabled {
   place-items: center;
   border: 0;
   border-radius: 9px;
-  color: #233653;
+  color: var(--icon-muted);
   background: transparent;
   cursor: pointer;
 }
@@ -1424,7 +1440,7 @@ button:disabled {
 }
 
 .job-card-meta svg {
-  color: #455977;
+  color: var(--icon-muted);
 }
 
 .job-card-tags {
@@ -1707,7 +1723,7 @@ button:disabled {
   padding: 22px;
   display: grid;
   place-items: center;
-  background: rgba(5, 18, 42, 0.52);
+  background: var(--scrim);
   backdrop-filter: blur(5px);
   animation: fade-in 180ms ease both;
 }
@@ -1830,7 +1846,7 @@ button:disabled {
   margin-bottom: 18px;
   display: grid;
   place-items: center;
-  border: 5px solid #dceafa;
+  border: 5px solid var(--progress-track);
   border-top-color: var(--inatel-blue);
   border-radius: 50%;
   animation: spin 800ms linear infinite;
@@ -1979,7 +1995,7 @@ button:disabled {
 .application-tracker-head div > span {
   display: inline-block;
   margin-bottom: 5px;
-  color: #9a6a00;
+  color: var(--warning);
   font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
@@ -2030,7 +2046,7 @@ button:disabled {
 }
 
 .timeline-step--complete > span { border-color: var(--success); color: var(--on-success); background: var(--success); }
-.timeline-step--complete::before { background: #8bd2aa; }
+.timeline-step--complete::before { background: var(--success-line); }
 .timeline-step--current > span { border-color: var(--inatel-blue); color: var(--inatel-blue); background: var(--inatel-blue-soft); }
 .timeline-step div { display: flex; flex-direction: column; gap: 4px; padding-top: 2px; }
 .timeline-step strong { color: var(--navy); font-size: 11px; }
@@ -2079,7 +2095,7 @@ button:disabled {
 .profile-completion div:first-child { display: flex; justify-content: space-between; gap: 18px; }
 .profile-completion strong { color: var(--navy); font-size: 12px; }
 .profile-completion span { color: var(--muted); font-size: 10px; }
-.completion-track { height: 7px; margin-top: 12px; overflow: hidden; border-radius: 6px; background: #e2e9f1; }
+.completion-track { height: 7px; margin-top: 12px; overflow: hidden; border-radius: 6px; background: var(--progress-track); }
 .completion-track span { display: block; width: 80%; height: 100%; border-radius: inherit; background: var(--inatel-blue); }
 
 .profile-list {
