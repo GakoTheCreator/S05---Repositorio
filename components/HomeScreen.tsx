@@ -80,9 +80,9 @@ export function HomeScreen({ theme, onToggleTheme, onNavigate, onOpenJob, onServ
           <button className="assistant-card" onClick={() => onNavigate("support")}>
             <span className="assistant-card-icon"><MessageCircle size={30} /></span>
             <div>
-              <strong>Atendimento inteligente</strong>
-              <p>Descreva sua dúvida, acompanhe a resposta do assistente e envie uma mensagem para continuar o atendimento.</p>
-              <span><Send size={15} /> Simula input, processamento e resposta do sistema</span>
+              <strong>Atendimento online</strong>
+              <p>Descreva sua dúvida, acompanhe a resposta do atendente e envie uma mensagem para continuar o atendimento.</p>
+              <span><Send size={15} /> Entrada, processamento e retorno do sistema</span>
             </div>
             <ChevronRight size={21} />
           </button>

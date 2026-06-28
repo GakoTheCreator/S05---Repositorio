@@ -108,7 +108,7 @@ export function LoginScreen({ theme, onToggleTheme, onLogin }: LoginScreenProps)
             <span>{busy ? "Entrando..." : "Entrar"}</span>
             {busy ? <span className="spinner" aria-hidden="true" /> : <ArrowRight size={20} />}
           </button>
-          <p className="demo-hint">Demonstração: as credenciais já estão preenchidas.</p>
+          <p className="demo-hint">Use as credenciais preenchidas para acessar.</p>
         </form>
         <p className="login-footer">© 2026 Instituto Nacional de Telecomunicações</p>
       </section>

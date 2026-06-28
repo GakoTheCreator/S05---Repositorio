@@ -8,7 +8,7 @@ type Message = { id: number; author: "assistant" | "user"; text: string; time: s
 type SupportScreenProps = { onBack: () => void };
 
 const initialMessages: Message[] = [
-  { id: 1, author: "assistant", text: "Olá, Gabriel! Sou a assistente virtual do Inatel. Como posso ajudar hoje?", time: "14:28" },
+  { id: 1, author: "assistant", text: "Olá, Gabriel! Este é o atendimento virtual do Inatel. Como posso ajudar hoje?", time: "14:28" },
   { id: 2, author: "user", text: "Quero saber como atualizar meu currículo para uma vaga.", time: "14:29" },
   { id: 3, author: "assistant", text: "Claro! Acesse Perfil › Currículo. Você pode substituir o PDF atual antes de enviar uma candidatura.", time: "14:29" },
 ];

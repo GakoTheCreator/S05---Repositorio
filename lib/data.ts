@@ -35,7 +35,7 @@ export const JOBS: Job[] = [
   },
   {
     id: 2,
-    title: "Estágio em Dados e IA",
+    title: "Estágio em Dados e Relatórios",
     company: "Ericsson",
     companyCode: "E",
     companyTone: "navy",
@@ -47,8 +47,8 @@ export const JOBS: Job[] = [
     type: "Estágio",
     isNew: true,
     description:
-      "Apoie análises de dados, automações e experimentos de inteligência artificial para soluções de redes de próxima geração.",
-    requirements: ["Python básico", "Interesse por dados e IA", "A partir do 3º período"],
+      "Apoie análises de dados, automações e painéis de acompanhamento para soluções de redes de próxima geração.",
+    requirements: ["Python básico", "Interesse por dados e dashboards", "A partir do 3º período"],
   },
   {
     id: 3,

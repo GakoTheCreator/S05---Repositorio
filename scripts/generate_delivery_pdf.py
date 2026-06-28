@@ -205,7 +205,7 @@ class ClassDiagram(Flowable):
         bw, bh = 4.7 * cm, 3.0 * cm
         self.box(c, 0.1 * cm, 11.1 * cm, bw, bh, "Aluno", ["+id", "+nome", "+curso", "+abrirAtendimento()", "+enviarMensagem()"])
         self.box(c, 6.1 * cm, 11.1 * cm, bw, bh, "Atendimento", ["+id", "+status", "+canal", "+iniciar()", "+encerrar()"])
-        self.box(c, 12.1 * cm, 11.1 * cm, bw, bh, "AssistenteVirtual", ["+id", "+nome", "+gerarResposta()", "+encaminhar()"])
+        self.box(c, 12.1 * cm, 11.1 * cm, bw, bh, "AtendenteVirtual", ["+id", "+nome", "+prepararResposta()", "+encaminhar()"])
         self.box(c, 3.1 * cm, 6.5 * cm, bw, bh, "Mensagem", ["+id", "+texto", "+autor", "+dataHora", "+validarInput()"])
         self.box(c, 9.1 * cm, 6.5 * cm, bw, bh, "Solicitação", ["+id", "+categoria", "+prioridade", "+registrar()", "+atualizarStatus()"])
         self.box(c, 0.1 * cm, 1.9 * cm, bw, bh, "Notificação", ["+id", "+tipo", "+conteudo", "+enviarFeedback()"])
@@ -220,6 +220,9 @@ class ClassDiagram(Flowable):
 
 def header_footer(canvas, doc):
     canvas.saveState()
+    canvas.setAuthor("Gabriel Ribeiro")
+    canvas.setTitle("Inatel Conecta - Assistencia no App")
+    canvas.setSubject("Projeto de interface para a disciplina Homem-Maquina")
     canvas.setFillColor(BLUE)
     canvas.setFont("Helvetica-BoldOblique", 15)
     canvas.drawString(1.5 * cm, A4[1] - 1.1 * cm, "Inatel")
@@ -303,7 +306,7 @@ def build():
                 ["Critério", "Comportamento esperado"],
                 ["Acesso ao atendimento", "A home apresenta o atendimento como ação principal e o menu inferior oferece acesso direto ao chat."],
                 ["Entrada de dados", "O aluno digita uma mensagem no campo do chat e envia pelo botão com ícone de envio."],
-                ["Processamento", "O sistema exibe resposta simulada do assistente após curto intervalo, representando tratamento da solicitação."],
+                ["Processamento", "O sistema registra a mensagem e retorna uma orientação após curto intervalo."],
                 ["Feedback", "A conversa mostra mensagens, horário, confirmação visual e estado online do atendente virtual."],
                 ["Tema", "O usuário alterna entre tema claro e escuro por botão visível na tela inicial e no topo desktop."],
                 ["Responsividade", "A interface mantém navegação e leitura adequadas em telas mobile e desktop."],
@@ -325,7 +328,7 @@ def build():
                 ["1.3", "Localizar atendimento", "Usar card principal da home ou aba Atendimento no menu inferior."],
                 ["1.4", "Enviar mensagem", "Digitar a dúvida no campo de texto e acionar Enviar."],
                 ["1.5", "Aguardar processamento", "Sistema registra a solicitação e prepara uma resposta simulada."],
-                ["1.6", "Interpretar feedback", "Aluno lê a resposta do assistente, horários e confirmação visual da mensagem."],
+                ["1.6", "Interpretar feedback", "Aluno lê o retorno do atendimento, horários e confirmação visual da mensagem."],
                 ["1.7", "Continuar navegação", "Aluno pode voltar à home, abrir avisos ou consultar serviços complementares."],
             ],
             [1.6 * cm, 4.7 * cm, 9.9 * cm],
@@ -336,7 +339,7 @@ def build():
             [
                 ["Entrada", "Processamento", "Feedback"],
                 ["Credenciais de login", "Validação simulada de campos preenchidos", "Avanço para home ou mensagem de erro"],
-                ["Mensagem no chat", "Registro e resposta automática após intervalo", "Nova bolha do assistente e horário da resposta"],
+                ["Mensagem no chat", "Registro e retorno após intervalo", "Nova bolha de atendimento e horário da resposta"],
                 ["Alternância de tema", "Atualização do estado de interface", "Mudança imediata entre claro e escuro"],
             ],
             [4.8 * cm, 5.8 * cm, 5.6 * cm],
@@ -357,8 +360,8 @@ def build():
         Table(
             [
                 [
-                    PhoneWireframe("Home", [("hero", "Saudação do aluno"), ("hero", "Atendente virtual online"), ("row", "Card: atendimento inteligente"), ("row", "Serviços do aluno"), ("row", "Avisos / Notas")]),
-                    PhoneWireframe("Atendimento", [("chat_bot", "Mensagem do assistente"), ("chat_user", "Dúvida do aluno"), ("chat_bot", "Resposta com orientação"), ("line", "Campo de digitação"), ("button", "Enviar")]),
+                    PhoneWireframe("Home", [("hero", "Saudação do aluno"), ("hero", "Atendente virtual online"), ("row", "Card: atendimento online"), ("row", "Serviços do aluno"), ("row", "Avisos / Notas")]),
+                    PhoneWireframe("Atendimento", [("chat_bot", "Mensagem do atendente"), ("chat_user", "Dúvida do aluno"), ("chat_bot", "Resposta com orientação"), ("line", "Campo de digitação"), ("button", "Enviar")]),
                     PhoneWireframe("Tema", [("hero", "Botão claro/escuro"), ("hero", "Home em modo escuro"), ("row", "Serviços com contraste"), ("row", "Menu inferior"), ("line", "Feedback visual imediato")]),
                 ]
             ],
