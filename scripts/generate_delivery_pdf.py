@@ -117,6 +117,31 @@ def image(path, max_w, max_h):
     return Image(str(source), width=w * scale, height=h * scale)
 
 
+def screenshot_grid(items, columns=3, image_w=4.8 * cm, image_h=7.35 * cm):
+    rows = []
+    col_width = 5.45 * cm
+    for index in range(0, len(items), columns):
+        group = items[index : index + columns]
+        image_row = [image(path, image_w, image_h) for path, _ in group]
+        caption_row = [p(label, "CenterSmall") for _, label in group]
+        while len(image_row) < columns:
+            image_row.append("")
+            caption_row.append("")
+        rows.extend([image_row, caption_row])
+    table = Table(rows, colWidths=[col_width] * columns)
+    table.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                ("TOPPADDING", (0, 0), (-1, -1), 2),
+            ]
+        )
+    )
+    return table
+
+
 class PhoneWireframe(Flowable):
     def __init__(self, title, elements):
         super().__init__()
@@ -293,7 +318,47 @@ def build():
         colWidths=[5.4 * cm, 5.4 * cm, 5.4 * cm],
     )
     shots.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"), ("ALIGN", (0, 0), (-1, -1), "CENTER")]))
-    story += [shots, PageBreak()]
+    story += [
+        shots,
+        PageBreak(),
+        p("Telas da interface", "SectionTitle"),
+        p("Conjunto completo de telas e estados usados no prototipo, cobrindo acesso, atendimento, servicos, vagas, candidatura, perfil e tema escuro.", "Body"),
+        screenshot_grid(
+            [
+                (".qa/mobile-login.png", "Login"),
+                (".qa/mobile-home.png", "Home - tema claro"),
+                (".qa/mobile-atendimento.png", "Atendimento inicial"),
+                (".qa/mobile-atendimento-resposta.png", "Atendimento com resposta"),
+                (".qa/mobile-vagas.png", "Vagas"),
+                (".qa/mobile-detalhe.png", "Detalhe da vaga"),
+            ]
+        ),
+        PageBreak(),
+        p("Telas da interface - continuidade", "SectionTitle"),
+        screenshot_grid(
+            [
+                (".qa/mobile-candidaturas.png", "Minhas candidaturas"),
+                (".qa/mobile-revisao.png", "Revisao da candidatura"),
+                (".qa/mobile-sucesso.png", "Confirmacao de envio"),
+                (".qa/review-avisos-dark.png", "Avisos - tema escuro"),
+                (".qa/review-perfil-dark.png", "Perfil - tema escuro"),
+                (".qa/mobile-home-dark.png", "Home - tema escuro"),
+            ]
+        ),
+        PageBreak(),
+        p("Estados visuais adicionais", "SectionTitle"),
+        screenshot_grid(
+            [
+                (".qa/mobile-atendimento-dark.png", "Atendimento - tema escuro"),
+                (".qa/review-detalhe-dark.png", "Detalhe - tema escuro"),
+                (".qa/review-modal-dark.png", "Modal - tema escuro"),
+                (".qa/review-vagas-dark.png", "Vagas - tema escuro"),
+                (".qa/desktop-home.png", "Home desktop"),
+            ],
+            image_h=6.2 * cm,
+        ),
+        PageBreak(),
+    ]
 
     story += [
         p("User Story", "SectionTitle"),
